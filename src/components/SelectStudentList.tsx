@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import axios from 'axios';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../App'
 import { workPostAtom } from '../atoms/workPostAtom';
 import { classAtom } from '../atoms/classAtom';
 import { studentAtom } from '../atoms/studentAtom';
-import { FormControl, FormLabel, RadioGroup, FormControlLabel, Radio, InputLabel, Select, MenuItem, TextField, Checkbox } from '@material-ui/core';
-import { ClassList, StudentList, WorkList } from '../type/datatype'
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,10 +25,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const SelectStudentList = () => {
   const [theme] = useAtom(themeAtom)
   const [workPost, setWorkPost] = useAtom(workPostAtom)
-  const [classData, setClassData] = useAtom(classAtom)
+  const [classData] = useAtom(classAtom)
   const [studentData, setStudentData] = useAtom(studentAtom)
-
-  // const [classList, setClassList] = useState([]);
 
   const classes = useStyles(theme);
 
@@ -41,7 +37,6 @@ export const SelectStudentList = () => {
   };
 
   return (
-
     classData.currentClassId === ''
       ? null
       : <FormControl variant="outlined" >
@@ -63,6 +58,5 @@ export const SelectStudentList = () => {
         </Select>
         <p>{studentData.studentList.find(x => x.student_id === studentData.currentStudentId)?.student_name}</p>
       </FormControl>
-
   )
 }

@@ -1,7 +1,7 @@
 import { atom } from 'jotai'
-import { ClassList, StudentList, WorkList } from '../type/datatype'
+import { StudentList } from '../type/datatype'
 
-  const studentArray: StudentList[] = [];
+const studentArray: StudentList[] = [];
 
 export const studentAtom = atom({
   studentList: studentArray,

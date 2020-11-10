@@ -1,5 +1,5 @@
 import { atom } from 'jotai'
-import { ClassList, StudentList, WorkList } from '../type/datatype'
+import { ClassList } from '../type/datatype'
 
 const classListArray: ClassList[] = [];
 export const classAtom = atom({
