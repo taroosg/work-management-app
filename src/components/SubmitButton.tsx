@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .TextField-root': {
-        margin: theme.spacing(1),
+      '& .Button-root': {
+        margin: theme.spacing(2),
         width: '20ch',
       },
     },
@@ -51,7 +51,7 @@ export const SubmitButton = () => {
         id="submit"
         variant="contained"
         color="primary"
-        className="TextField-root"
+        className="Button-root"
         onClick={handleSubmit}
       >
         送信
