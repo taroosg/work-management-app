@@ -5,7 +5,7 @@ import { themeAtom } from '../App'
 import { workPostAtom } from '../atoms/workPostAtom';
 import { classAtom } from '../atoms/classAtom';
 import { studentAtom } from '../atoms/studentAtom';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -13,10 +13,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .Select-root': {
-        margin: theme.spacing(1),
-        width: '30ch',
+      '& .FormControl-root': {
+        margin: theme.spacing(2),
+        width: '35ch',
       },
+      '& .Typography-root': {
+        marginTop: theme.spacing(2),
+      }
     },
   })
 );
@@ -32,18 +35,17 @@ export const SelectStudentList = () => {
   const handleChangeSelectStudent = (e: React.ChangeEvent<{ value: unknown }>): void => {
     setStudentData({ ...studentData, currentStudentId: e.target.value as string });
     setWorkPost({ ...workPost, student_id: e.target.value as string });
-    console.log(workPost);
   };
 
   return (
     classData.currentClassId === ''
       ? null
       : <div className={classes.root}>
-        <FormControl variant="outlined" >
-          <InputLabel id="student_number">StudentNumber</InputLabel>
+        <FormControl variant="outlined" className="FormControl-root">
+          <InputLabel id="student_number">受講生番号</InputLabel>
           <Select
             labelId="student_number"
-            value={studentData.currentStudentId}
+            value={workPost.student_id}
             onChange={handleChangeSelectStudent}
             label="StudentNumber"
             className="Select-root"
@@ -57,7 +59,7 @@ export const SelectStudentList = () => {
               )
             }
           </Select>
-          <p>{studentData.studentList.find(x => x.student_id === studentData.currentStudentId)?.student_name}</p>
+          <Typography className="Typography-root">{studentData.studentList.find(x => x.student_id === workPost.student_id)?.student_name ?? '受講生氏名'}</Typography>
         </FormControl>
       </div>
   )

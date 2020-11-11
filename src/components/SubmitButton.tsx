@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../App'
 import { workPostAtom } from '../atoms/workPostAtom';
+import { loadingAtom } from '../atoms/loadingAtom';
 import { Button } from '@material-ui/core';
 import axios from 'axios';
 
@@ -23,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
 export const SubmitButton = () => {
 
   const [theme] = useAtom(themeAtom)
-  const [workPost] = useAtom(workPostAtom)
+  const [workPost, setWorkPost] = useAtom(workPostAtom)
+  const [isLoading, setIsLoading] = useAtom(loadingAtom)
 
   const classes = useStyles(theme);
 
@@ -32,9 +34,11 @@ export const SubmitButton = () => {
       alert('未入力項目があります！');
       return false;
     };
+    setIsLoading(true);
     const result = await axios.post(`${process.env.REACT_APP_SERVER_URI}/work-post`, workPost);
-    // console.log(result);
     if (result.status === 201) alert('Success!!!')
+    setWorkPost({ student_id: '', work_number: '', work_url: '', review: true, comment: '' })
+    setIsLoading(false);
   }
 
   const handleSubmit = () => {
@@ -50,7 +54,7 @@ export const SubmitButton = () => {
         className="TextField-root"
         onClick={handleSubmit}
       >
-        Submit!
+        送信
       </Button>
     </div>
   )

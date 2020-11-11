@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       '& .CheckBox-root': {
         margin: theme.spacing(1),
-        width: '30ch',
+        width: '35ch',
       },
     },
   })
@@ -40,7 +40,7 @@ export const CheckReview = () => {
             name="review"
           />
         }
-        label="Review"
+        label="レビュー会参加希望"
         className="CheckBox-root"
       />
     </div>

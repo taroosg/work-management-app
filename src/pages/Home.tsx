@@ -1,9 +1,11 @@
 import React from 'react';
-
+import { PageTitle } from '../components/PageTitle';
 export const Home = () => {
   return (
     <>
-      <p>Home page</p>
+      <PageTitle
+        text='課題管理システム'
+      />
     </>
   )
 }

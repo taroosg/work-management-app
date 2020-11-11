@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
+      '& .FormControl-root': {
+        margin: theme.spacing(2),
+        width: '35ch',
       },
     },
   })
@@ -50,7 +50,7 @@ export const SelectClassList = () => {
 
   return (
     <div className={classes.root} >
-      <FormControl component="fieldset">
+      <FormControl component="fieldset" className="FormControl-root">
         <FormLabel component="legend">Class</FormLabel>
         <RadioGroup
           aria-label="class"

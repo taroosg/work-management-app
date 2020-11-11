@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .Select-root': {
-        margin: theme.spacing(1),
-        width: '30ch',
+      '& .FormControl-root': {
+        margin: theme.spacing(2),
+        width: '35ch',
       },
     },
   })
@@ -44,11 +44,11 @@ export const SelectWorkList = () => {
 
   return (
     <div className={classes.root}>
-      <FormControl variant="outlined" >
-        <InputLabel id="work_number">WorkNumber</InputLabel>
+      <FormControl variant="outlined" className="FormControl-root" >
+        <InputLabel id="work_number">課題番号</InputLabel>
         <Select
           labelId="work_number"
-          value={workData.currentWorkNumber}
+          value={workPost.work_number}
           onChange={handleChangeSelectWork}
           label="WorkNumber"
           className="Select-root"

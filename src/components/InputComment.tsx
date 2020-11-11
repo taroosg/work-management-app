@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       '& .TextField-root': {
         margin: theme.spacing(1),
-        width: '30ch',
+        width: '35ch',
       },
     },
   })
@@ -34,7 +34,7 @@ export const InputComment = () => {
     <div className={classes.root}>
       <TextField
         id="comment"
-        label="Comment"
+        label="コメント（任意）"
         variant="outlined"
         onChange={handleChangeComment}
         className="TextField-root"
