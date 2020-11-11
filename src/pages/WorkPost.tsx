@@ -8,7 +8,6 @@ import { InputComment } from '../components/InputComment';
 import { SubmitButton } from '../components/SubmitButton';
 
 export const WorkPost = () => {
-
   return (
     <>
       <p>workPost page</p>
@@ -19,7 +18,6 @@ export const WorkPost = () => {
       <CheckReview />
       <InputComment />
       <SubmitButton />
-      {/* {JSON.stringify(workPost)} */}
     </>
   )
 }
