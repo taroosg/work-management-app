@@ -42,7 +42,7 @@ export const SelectStudentList = () => {
       ? null
       : <div className={classes.root}>
         <FormControl variant="outlined" className="FormControl-root">
-          <InputLabel id="student_number">受講生番号</InputLabel>
+          <InputLabel id="student_number">受講番号</InputLabel>
           <Select
             labelId="student_number"
             value={workPost.student_id}
