@@ -1,6 +1,4 @@
 import React from 'react';
-import { workPostAtom } from '../atoms/workPostAtom'
-import { useAtom } from 'jotai'
 import { SelectClassList } from '../components/SelectClassList';
 import { SelectStudentList } from '../components/SelectStudentList';
 import { SelectWorkList } from '../components/SelectWorkList';
@@ -10,8 +8,6 @@ import { InputComment } from '../components/InputComment';
 import { SubmitButton } from '../components/SubmitButton';
 
 export const WorkPost = () => {
-
-  const [workPost] = useAtom(workPostAtom)
 
   return (
     <>
