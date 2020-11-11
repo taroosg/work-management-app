@@ -30,7 +30,7 @@ export const Nav = () => {
         open={isLoading}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-      ></Dialog>
+      >now loading...</Dialog>
       <Breadcrumbs aria-label="breadcrumb" className={classes.root}>
         <Link color="inherit" href="/">
           Home
