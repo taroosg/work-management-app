@@ -13,9 +13,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
+      '& .Select-root': {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '30ch',
       },
     },
   })
@@ -40,26 +40,29 @@ export const SelectWorkList = () => {
 
   useEffect(() => {
     getWorkList();
-  }, [])
+  }, []);
 
   return (
-    <FormControl variant="outlined" >
-      <InputLabel id="work_number">WorkNumber</InputLabel>
-      <Select
-        labelId="work_number"
-        value={workData.currentWorkNumber}
-        onChange={handleChangeSelectWork}
-        label="WorkNumber"
-      >
-        {
-          workData.workNumberList.map((x, i) =>
-            <MenuItem
-              key={i}
-              value={x.work_number}
-            >{x.work_number}</MenuItem>
-          )
-        }
-      </Select>
-    </FormControl>
+    <div className={classes.root}>
+      <FormControl variant="outlined" >
+        <InputLabel id="work_number">WorkNumber</InputLabel>
+        <Select
+          labelId="work_number"
+          value={workData.currentWorkNumber}
+          onChange={handleChangeSelectWork}
+          label="WorkNumber"
+          className="Select-root"
+        >
+          {
+            workData.workNumberList.map((x, i) =>
+              <MenuItem
+                key={i}
+                value={x.work_number}
+              >{x.work_number}</MenuItem>
+            )
+          }
+        </Select>
+      </FormControl>
+    </div>
   )
 }

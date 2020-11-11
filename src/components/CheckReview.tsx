@@ -11,9 +11,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
+      '& .CheckBox-root': {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '30ch',
       },
     },
   })
@@ -31,15 +31,18 @@ export const CheckReview = () => {
   };
 
   return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          checked={workPost.review}
-          onChange={handleChangeReview}
-          name="review"
-        />
-      }
-      label="Review"
-    />
+    <div className={classes.root}>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={workPost.review}
+            onChange={handleChangeReview}
+            name="review"
+          />
+        }
+        label="Review"
+        className="CheckBox-root"
+      />
+    </div>
   )
 }

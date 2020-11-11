@@ -11,7 +11,7 @@ import { WorkResult } from './pages/WorkResult';
 
 const darkTheme = createMuiTheme({
   typography: {
-    fontSize: 22,
+    fontSize: 18,
   },
   palette: {
     type: 'dark',

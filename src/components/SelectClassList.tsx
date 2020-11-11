@@ -49,26 +49,28 @@ export const SelectClassList = () => {
   }, [])
 
   return (
-    <FormControl component="fieldset">
-      <FormLabel component="legend">Class</FormLabel>
-      <RadioGroup
-        aria-label="class"
-        name="class_select"
-        value={classData.currentClassId}
-        onChange={handleChangeRadio}
-      >
-        {
-          classData.classList.map((x, i) =>
-            <FormControlLabel
-              key={i}
-              checked={classData.currentClassId === x.class_id.toString()}
-              value={x.class_id}
-              control={<Radio />}
-              label={x.class_name}
-            />
-          )
-        }
-      </RadioGroup>
-    </FormControl>
+    <div className={classes.root} >
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Class</FormLabel>
+        <RadioGroup
+          aria-label="class"
+          name="class_select"
+          value={classData.currentClassId}
+          onChange={handleChangeRadio}
+        >
+          {
+            classData.classList.map((x, i) =>
+              <FormControlLabel
+                key={i}
+                checked={classData.currentClassId === x.class_id.toString()}
+                value={x.class_id}
+                control={<Radio />}
+                label={x.class_name}
+              />
+            )
+          }
+        </RadioGroup>
+      </FormControl>
+    </div>
   )
 }

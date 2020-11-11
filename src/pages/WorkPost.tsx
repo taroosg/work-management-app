@@ -7,14 +7,11 @@ import { SelectWorkList } from '../components/SelectWorkList';
 import { InputWorkUrl } from '../components/InputWorkUrl';
 import { CheckReview } from '../components/CheckReview';
 import { InputComment } from '../components/InputComment';
+import { SubmitButton } from '../components/SubmitButton';
 
 export const WorkPost = () => {
 
   const [workPost] = useAtom(workPostAtom)
-
-  const postToServer = () => {
-
-  }
 
   return (
     <>
@@ -25,7 +22,8 @@ export const WorkPost = () => {
       <InputWorkUrl />
       <CheckReview />
       <InputComment />
-      {JSON.stringify(workPost)}
+      <SubmitButton />
+      {/* {JSON.stringify(workPost)} */}
     </>
   )
 }

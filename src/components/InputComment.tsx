@@ -11,15 +11,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
+      '& .TextField-root': {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '30ch',
       },
     },
   })
 );
-
-
 
 export const InputComment = () => {
 
@@ -33,11 +31,14 @@ export const InputComment = () => {
   }
 
   return (
-    <TextField
-      id="comment"
-      label="Comment"
-      variant="outlined"
-      onChange={handleChangeComment}
-    />
+    <div className={classes.root}>
+      <TextField
+        id="comment"
+        label="Comment"
+        variant="outlined"
+        onChange={handleChangeComment}
+        className="TextField-root"
+      />
+    </div>
   )
 }

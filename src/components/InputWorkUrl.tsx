@@ -11,15 +11,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
+      '& .TextField-root': {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '30ch',
       },
     },
   })
 );
-
-
 
 export const InputWorkUrl = () => {
 
@@ -33,13 +31,15 @@ export const InputWorkUrl = () => {
   }
 
   return (
-    <TextField
-      required
-      id="work_url"
-      label="Url"
-      variant="outlined"
-      onChange={handleChangeUrl}
-    />
-
+    <div className={classes.root}>
+      <TextField
+        required
+        id="work_url"
+        label="Url"
+        variant="outlined"
+        onChange={handleChangeUrl}
+        className="TextField-root"
+      />
+    </div>
   )
 }

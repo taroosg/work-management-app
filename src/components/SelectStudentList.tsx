@@ -7,16 +7,15 @@ import { classAtom } from '../atoms/classAtom';
 import { studentAtom } from '../atoms/studentAtom';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      '& .MuiTextField-root': {
+      '& .Select-root': {
         margin: theme.spacing(1),
-        width: '25ch',
+        width: '30ch',
       },
     },
   })
@@ -39,24 +38,27 @@ export const SelectStudentList = () => {
   return (
     classData.currentClassId === ''
       ? null
-      : <FormControl variant="outlined" >
-        <InputLabel id="student_number">StudentNumber</InputLabel>
-        <Select
-          labelId="student_number"
-          value={studentData.currentStudentId}
-          onChange={handleChangeSelectStudent}
-          label="StudentNumber"
-        >
-          {
-            studentData.studentList.map((x, i) =>
-              <MenuItem
-                key={i}
-                value={x.student_id}
-              >{x.student_number}</MenuItem>
-            )
-          }
-        </Select>
-        <p>{studentData.studentList.find(x => x.student_id === studentData.currentStudentId)?.student_name}</p>
-      </FormControl>
+      : <div className={classes.root}>
+        <FormControl variant="outlined" >
+          <InputLabel id="student_number">StudentNumber</InputLabel>
+          <Select
+            labelId="student_number"
+            value={studentData.currentStudentId}
+            onChange={handleChangeSelectStudent}
+            label="StudentNumber"
+            className="Select-root"
+          >
+            {
+              studentData.studentList.map((x, i) =>
+                <MenuItem
+                  key={i}
+                  value={x.student_id}
+                >{x.student_number}</MenuItem>
+              )
+            }
+          </Select>
+          <p>{studentData.studentList.find(x => x.student_id === studentData.currentStudentId)?.student_name}</p>
+        </FormControl>
+      </div>
   )
 }
