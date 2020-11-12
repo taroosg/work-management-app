@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import * as colors from "@material-ui/core/colors";
-import { atom, Provider } from 'jotai'
+import { atom, Provider, useAtom } from 'jotai'
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Nav } from './components/Nav'
-import { Home } from './pages/Home'
+import { LoginForm } from './components/LoginForm';
+import { Nav } from './components/Nav';
+import { Home } from './pages/Home';
 import { WorkPost } from './pages/WorkPost';
 import { WorkResult } from './pages/WorkResult';
+import { Work } from './pages/Work';
+// import { authAtom } from './atoms/authAtom';
 
 const darkTheme = createMuiTheme({
   typography: {
@@ -23,19 +26,20 @@ const darkTheme = createMuiTheme({
   },
 });
 
+// const isAuth = false;
+
 export const themeAtom = atom(darkTheme);
+// export const authAtom = atom(isAuth);
 
 const App = () => {
+
+  // const [isAuth] = useAtom(authAtom);
+
   return (
     <Provider>
       <MuiThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <BrowserRouter>
-          <Nav />
-          <Route exact path='/' component={Home} />
-          <Route path='/WorkPost' component={WorkPost} />
-          <Route path='/WorkResult' component={WorkResult} />
-        </BrowserRouter>
+        <Work />
       </MuiThemeProvider>
     </Provider>
 

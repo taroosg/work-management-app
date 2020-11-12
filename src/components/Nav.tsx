@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Breadcrumbs, Dialog } from '@material-ui/core';
-import Link from '@material-ui/core/Link';
+import { Breadcrumbs, Dialog, Menu, MenuItem } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 import { useAtom } from 'jotai';
 import { themeAtom } from '../App'
 import { loadingAtom } from '../atoms/loadingAtom';
@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight: '5ch',
       margin: theme.spacing(2),
     },
+    '& .Link-root': {
+      textDecoration: 'none',
+      color: 'white',
+    }
   })
 );
 
@@ -32,13 +36,13 @@ export const Nav = () => {
         aria-describedby="alert-dialog-description"
       >now loading...</Dialog>
       <Breadcrumbs aria-label="breadcrumb" className={classes.root}>
-        <Link color="inherit" href="/">
+        <Link to="/" style={{ textDecoration: 'none', color: 'orange' }}>
           Home
-      </Link>
-        <Link color="inherit" href="/WorkPost" >
+        </Link>
+        <Link color="primary" to="/work-post" style={{ textDecoration: 'none', color: 'orange' }}>
           課題提出
       </Link>
-        <Link color="inherit" href="/WorkResult" >
+        <Link color="primary" to="/work-result" style={{ textDecoration: 'none', color: 'orange' }}>
           提出状況確認
       </Link>
       </Breadcrumbs>
