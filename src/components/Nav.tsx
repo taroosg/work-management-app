@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Breadcrumbs, Dialog, Menu, MenuItem } from '@material-ui/core';
+import { Breadcrumbs, Dialog } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import { useAtom } from 'jotai';
 import { themeAtom } from '../App'
@@ -24,17 +24,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Nav = () => {
   const [theme] = useAtom(themeAtom)
-  const [isLoading] = useAtom(loadingAtom);
+  // const [isLoading] = useAtom(loadingAtom);
 
   const classes = useStyles(theme);
 
   return (
     <div>
-      <Dialog
+      {/* <Dialog
         open={isLoading}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
-      >now loading...</Dialog>
+      >now loading...</Dialog> */}
       <Breadcrumbs aria-label="breadcrumb" className={classes.root}>
         <Link to="/" style={{ textDecoration: 'none', color: 'orange' }}>
           Home

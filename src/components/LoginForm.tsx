@@ -40,9 +40,14 @@ export const LoginForm = () => {
   const authRequest = async (password: string) => {
     setIsLoading(true);
     const authResult = await axios.post(`${process.env.REACT_APP_SERVER_URI}/auth`, { password: password });
-    if (authResult.data === true) setIsAuth(true)
-    else alert('invailed password...');
-    setIsLoading(false);
+    if (authResult.data === true) {
+      setIsAuth(true);
+      setIsLoading(false);
+    }
+    else {
+      alert('invailed password...');
+      setIsLoading(false);
+    }
   };
 
   const handleChangePassword = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
