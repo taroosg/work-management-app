@@ -11,7 +11,6 @@ import { authAtom } from '../atoms/authAtom';
 export const Work = () => {
 
   const [isAuth] = useAtom(authAtom);
-  console.log(isAuth)
 
   return (
     <>

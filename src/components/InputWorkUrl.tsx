@@ -4,6 +4,7 @@ import { useAtom } from 'jotai';
 import { themeAtom } from '../App'
 import { workPostAtom } from '../atoms/workPostAtom';
 import { TextField } from '@material-ui/core';
+import { isMatchUrl } from './SubmitButton';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +38,8 @@ export const InputWorkUrl = () => {
         type="url"
         id="work_url"
         label="Github_URL"
-        // value={workPost.work_url}
+        error={workPost.work_url !== '' && !isMatchUrl(workPost.work_url)}
+        helperText={!isMatchUrl(workPost.work_url) ? 'not a Github URL...' : '👍'}
         variant="outlined"
         onChange={handleChangeUrl}
         className="TextField-root"

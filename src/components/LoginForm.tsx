@@ -40,7 +40,8 @@ export const LoginForm = () => {
   const authRequest = async (password: string) => {
     setIsLoading(true);
     const authResult = await axios.post(`${process.env.REACT_APP_SERVER_URI}/auth`, { password: password });
-    if (authResult.data === true) setIsAuth(true);
+    if (authResult.data === true) setIsAuth(true)
+    else alert('invailed password...');
     setIsLoading(false);
   };
 

@@ -21,19 +21,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+export const isMatchUrl = (url: string) => /^https:\/\/github\.com\/.+/.test(url);
+
 export const SubmitButton = () => {
 
   const [theme] = useAtom(themeAtom)
   const [workPost, setWorkPost] = useAtom(workPostAtom)
-  const [isLoading, setIsLoading] = useAtom(loadingAtom)
+  const [, setIsLoading] = useAtom(loadingAtom)
 
   const classes = useStyles(theme);
 
   const sendPostToAPI = async () => {
-    if (workPost.student_id === '' || workPost.work_number === '' || workPost.work_url === '') {
-      alert('未入力項目があります！');
-      return false;
-    };
     setIsLoading(true);
     const result = await axios.post(`${process.env.REACT_APP_SERVER_URI}/work-post`, workPost);
     if (result.status === 201) alert('Success!!!')
@@ -42,6 +40,11 @@ export const SubmitButton = () => {
   }
 
   const handleSubmit = () => {
+    if (workPost.student_id === '' || workPost.work_number === '' || workPost.work_url === '') {
+      alert('未入力項目があります！');
+      return false;
+    };
+    if (!isMatchUrl(workPost.work_url)) alert('URLの形式を確認しましょう！');
     sendPostToAPI();
   }
 
@@ -53,6 +56,12 @@ export const SubmitButton = () => {
         color="primary"
         className="Button-root"
         onClick={handleSubmit}
+        disabled={
+          workPost.student_id === '' ||
+          workPost.work_number === '' ||
+          workPost.work_url === '' ||
+          !isMatchUrl(workPost.work_url)
+        }
       >
         送信
       </Button>
