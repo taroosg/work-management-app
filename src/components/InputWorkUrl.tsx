@@ -39,7 +39,11 @@ export const InputWorkUrl = () => {
         id="work_url"
         label="Github_URL"
         error={workPost.work_url !== '' && !isMatchUrl(workPost.work_url)}
-        helperText={!isMatchUrl(workPost.work_url) ? 'NOT a Github repository URL...' : '👍'}
+        helperText={
+          !isMatchUrl(workPost.work_url)
+            ? 'NOT a Github repository URL...'
+            : '👍'
+        }
         variant="outlined"
         onChange={handleChangeUrl}
         className="TextField-root"

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const SelectClassList = () => {
   const [theme] = useAtom(themeAtom)
-  const [isLoading, setIsLoading] = useAtom(loadingAtom)
+  const [, setIsLoading] = useAtom(loadingAtom)
   const [classData, setClassData] = useAtom(classAtom)
   const [studentData, setStudentData] = useAtom(studentAtom)
 

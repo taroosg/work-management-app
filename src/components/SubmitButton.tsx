@@ -44,7 +44,10 @@ export const SubmitButton = () => {
       alert('未入力項目があります！');
       return false;
     };
-    if (!isMatchUrl(workPost.work_url)) alert('URLの形式を確認しましょう！');
+    if (!isMatchUrl(workPost.work_url)) {
+      alert('URLの形式を確認しましょう！');
+      return false;
+    };
     sendPostToAPI();
   }
 
