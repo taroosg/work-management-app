@@ -18,9 +18,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       height: '100vh',
     },
-    // paper: {
-    //   border: '1px solid #f39800',
-    // },
     input: {
       margin: theme.spacing(2),
       width: '25ch',
