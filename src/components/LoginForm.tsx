@@ -4,8 +4,10 @@ import { useAtom } from 'jotai';
 import { themeAtom } from '../App';
 import { authAtom } from '../atoms/authAtom';
 import { loadingAtom } from '../atoms/loadingAtom';
-import { TextField, Button } from '@material-ui/core';
+import { InputBase, IconButton, Paper } from '@material-ui/core';
 import axios from 'axios';
+
+import { ChevronRight } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,14 +17,16 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       height: '100vh',
-      '& .TextField-root': {
-        margin: theme.spacing(2),
-        width: '35ch',
-      },
-      '& .Button-root': {
-        margin: theme.spacing(2),
-        width: '20ch',
-      },
+    },
+    // paper: {
+    //   border: '1px solid #f39800',
+    // },
+    input: {
+      margin: theme.spacing(2),
+      width: '25ch',
+    },
+    iconButton: {
+      marginRight: theme.spacing(1),
     },
   })
 );
@@ -54,29 +58,35 @@ export const LoginForm = () => {
     setPassword(e.currentTarget.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent<HTMLDivElement>) => {
+    e.preventDefault();
     authRequest(password);
   };
 
   return (
     <div className={classes.root}>
-      <TextField
-        type="password"
-        id="password"
-        label="password"
+      <Paper
+        component="form"
         variant="outlined"
-        onChange={handleChangePassword}
-        className="TextField-root"
-      />
-      <Button
-        id="submit"
-        variant="contained"
-        color="primary"
-        className="Button-root"
-        onClick={handleSubmit}
+        onSubmit={handleSubmit}
       >
-        Sign In!
-      </Button>
+        <InputBase
+          className={classes.input}
+          type="password"
+          placeholder="Password"
+          inputProps={{ 'aria-label': 'Password' }}
+          id="password"
+          onChange={handleChangePassword}
+        />
+        <IconButton
+          type="button"
+          color="primary"
+          className={classes.iconButton}
+          aria-label="submit"
+        >
+          <ChevronRight />
+        </IconButton>
+      </Paper>
     </div>
   )
 }
