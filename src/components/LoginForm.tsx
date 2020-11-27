@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     input: {
       margin: theme.spacing(2),
-      width: '25ch',
+      width: '20ch',
     },
     iconButton: {
       marginRight: theme.spacing(1),
@@ -76,7 +76,7 @@ export const LoginForm = () => {
           onChange={handleChangePassword}
         />
         <IconButton
-          type="button"
+          type="submit"
           color="primary"
           className={classes.iconButton}
           aria-label="submit"
