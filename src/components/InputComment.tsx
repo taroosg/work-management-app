@@ -34,7 +34,7 @@ export const InputComment = () => {
     <div className={classes.root}>
       <TextField
         id="comment"
-        label="コメント（任意）"
+        label="API_KEY（任意）"
         variant="outlined"
         onChange={handleChangeComment}
         className="TextField-root"
